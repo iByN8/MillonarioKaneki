@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>¿Quién quiere ser millonario?</title>
+<link rel="stylesheet" href="estilos.css" />
+<script src="script.js"></script>
+</head>
+<body>
+	
+	<section id="pregunta">Aquí va la pregunta</section>
+	<section id="resp1" class="respuesta rizq" onclick="if(confirm('¿Es A) tu Respuesta final?'))revisa_si_correcta('R1');">A)<span id="R1"></span></section>
+	<section id="resp2" class="respuesta rder" onclick="if(confirm('¿Es B) tu Respuesta final?'))revisa_si_correcta('R2');">B)<span id="R2"></span></section>
+	<section id="resp3" class="respuesta rizq" onclick="if(confirm('¿Es C) tu Respuesta final?'))revisa_si_correcta('R3');">C)<span id="R3"></span></section>
+	<section id="resp4" class="respuesta rder" onclick="if(confirm('¿Es D) tu Respuesta final?'))revisa_si_correcta('R4');">D)<span id="R4"></span></section>
+	<div id="iniciar" class="panel_sup" onclick="inicializa_juego();"><span onclick="inicializa_juego();">Comenzar juego</span></div>
+	<div id="wrap_premio" class="panel_sup">COMODINES</div>
+
+</body>
+</html>

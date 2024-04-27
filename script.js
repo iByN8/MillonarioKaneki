@@ -80,5 +80,4 @@ function inicializa_juego(){
     document.getElementById("iniciar").style.visibility = false;
     pregunta_actual=0;
     cambia_pregunta();
-    $("#premio").html('0');
 };

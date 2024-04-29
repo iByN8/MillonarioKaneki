@@ -78,6 +78,16 @@ function revisa_si_correcta(r){
 
 function inicializa_juego(){
     document.getElementById("iniciar").style.visibility = false;
-    pregunta_actual=0;
-    cambia_pregunta();
 };
+
+function pregunta1(){
+    document.getElementById("resp1").style.backgroundColor = "red";
+}
+
+function pregunta2(){
+    document.getElementById("resp2").style.backgroundColor = "green";
+}
+
+function pregunta3(){
+    document.getElementById("resp3").style.filter = "grayscale(75%)"
+}

@@ -46,27 +46,10 @@ body{
 }
 
 .respuesta {
-    width: 48%;
-}
-
-.rizq {
-    left: 0;
-    border: 2px solid #000000;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-	text-align: left;
-}
-
-.rder {
-    right: 0;
-    border: 2px solid #000000;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    text-align: left;
+    width: 50%;
+	background-image: url('diseños/Button1.png');
+	background-position: center;
+	background-size: cover;
 }
 
 .panel_sup {

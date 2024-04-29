@@ -30,10 +30,11 @@ body{
     font: bold 1.5em sans-serif;
     color: #000000;
     text-align: center;
-    width: 50%;
+    width: 90%;
     height: 30%;
     display: flex; 
-    flex-direction: column; 
+    flex-direction: column;
+	background-color: rgb(8, 8, 8, 0.90);
 }
 
 

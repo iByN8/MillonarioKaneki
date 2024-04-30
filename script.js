@@ -10,84 +10,69 @@ var preguntas_dificiles=[
     ['¿Cual es el bus real de una memoria que reporta PC-10600?','667Mhz','533Mhz','400Mhz','10600Mhz'],
     ['¿Cuantas líneas de código tenía la primera version del kernel de Linux (ver 1.0.0)?','176,250','1,800,847','176,240','176,260']
 ];
-//ToDo Agregar más preguntas!!!
-//Arreglo con los premios
-var cantidades=[100,200,300,500,1000,2000,4000,8000,16000,32000,64000,125000,250000,500000,1000000];
 
 //Variables para llevar el estado actual
-var premio_actual=null;
-var pregunta_actual=null;
+var pregunta_actual = 0;
 var respuestas=['R1','R2','R3','R4'];
-var preguntas=[1,2];//3,4,5,]
-var ps=null;
 
-//Funciones auxiliares copiadas de Internet
-//+ Jonas Raoni Soares Silva
-//@ http://jsfromhell.com/array/shuffle [v1.0]
-function shuffle(o){ //v1.0
-    for(var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
-return o;
-};			
-
-function cambia_pregunta(){
-    //"Shufflea" las respuestas
-    var resp=shuffle(respuestas);
-    
-    if(pregunta_actual==0 | pregunta_actual==5 | pregunta_actual==10)
-        ps=shuffle(preguntas);
-    
-    if(pregunta_actual<5){
-        //Cambiar pregunta
-        
-        $('#pregunta').html(preguntas_faciles[ps[pregunta_actual]][0])
-        //Reset a la clase correcta en todas las preguntas
-        $('.respuesta').removeClass('correcta');
-        $('#'+resp[0]).html(preguntas_faciles[ps[pregunta_actual]][1])
-        $('#'+resp[1]).html(preguntas_faciles[ps[pregunta_actual]][2])
-        $('#'+resp[2]).html(preguntas_faciles[ps[pregunta_actual]][3])
-        $('#'+resp[3]).html(preguntas_faciles[ps[pregunta_actual]][4])
-        $('#'+resp[0]).addClass('correcta');
-    }
-    
-    //Aqui poner codigo para las otras 2 categorias de preguntas
-    
-    pregunta_actual+=1;
-};
-
-function revisa_si_correcta(r){
-    var acerto=$("#"+r).hasClass('correcta');
-    if(acerto){
-            alert("Correcto!");
-            $("#premio").html(cantidades[pregunta_actual-1]);
-        }
-    else{
-        var premio=0;
-        if(pregunta_actual>5)
-            premio=1000;
-        if(pregunta_actual>10)
-            premio=32000;
-        if(premio==0){
-            alert("Respuesta incorrecta. Perdiste.\nDa Click en aceptar para empezar de nuevo.");
-            inicializa_juego();
-        }
-        else{
-            alert("Respuesta incorrecta. Perdiste. Pero te llevas un premio de: $"+premio+".Da Click en aceptar para empezar de nuevo.");
-        }
-    }
-};
 
 function inicializa_juego(){
-    document.getElementById("iniciar").style.visibility = false;
+    document.getElementById("iniciar").style.display = "none";
+    pregunta_actual = 0;
+    mostrar_pregunta();
 };
 
-function pregunta1(){
-    document.getElementById("resp1").style.backgroundColor = "red";
+function mostrar_pregunta() {
+    var contenedorPregunta = document.getElementById('pregunta');
+    var respuestasContenedor = document.getElementsByClassName('respuesta');
+    var preguntas;
+
+    // Decidir el conjunto de preguntas basado en el nivel de dificultad según el avance
+    if (pregunta_actual < 5) {
+        preguntas = preguntas_faciles;
+    } else if (pregunta_actual >= 5 && pregunta_actual < 10) {
+        preguntas = preguntas_medias;
+    } else {
+        preguntas = preguntas_dificiles;
+    }
+
+    // Elegir la pregunta adecuada del array basado en el índice 'pregunta_actual'
+    var preguntaSeleccionada = preguntas[pregunta_actual % preguntas.length]; // Usar módulo para ciclar preguntas si fuera necesario
+    contenedorPregunta.textContent = preguntaSeleccionada[0]; // Mostrar la pregunta
+
+    var letras = ['A)', 'B)', 'C)', 'D)'];
+
+    // Asignar respuestas a los botones y remover la clase 'correcta'
+    for (var i = 0; i < respuestasContenedor.length; i++) {
+        respuestasContenedor[i].textContent = letras[i] + ' ' +preguntaSeleccionada[i + 1];
+        respuestasContenedor[i].classList.remove('correcta');
+        if (i === 0) {
+            respuestasContenedor[i].classList.add('correcta'); // Marcar la respuesta correcta aleatoriamente
+        }
+    }
+ 
 }
 
-function pregunta2(){
-    document.getElementById("resp2").style.backgroundColor = "green";
+function revisa_si_correcta(r) {
+    var respuestaSeleccionada = document.getElementById(r); // Obtener el elemento de la respuesta seleccionada por su ID
+    var esCorrecta = respuestaSeleccionada.classList.contains('correcta'); // Verificar si la respuesta seleccionada tiene la clase 'correcta'
+
+    if (esCorrecta) {
+        respuestaSeleccionada.style.backgroundColor = "green";
+        document.getElementById("f" + (pregunta_actual + 1)).style.backgroundColor = "green"; 
+        mostrarFlecha();
+
+    } else {
+        respuestaSeleccionada.style.backgroundColor = "red";
+        document.getElementById("f" + (pregunta_actual + 1)).style.backgroundColor = "red";
+    }
 }
 
-function pregunta3(){
-    document.getElementById("resp3").style.filter = "grayscale(75%)"
+function mostrarFlecha() {
+   
 }
+
+
+function cambia_pregunta(){
+    
+};

@@ -24,6 +24,10 @@ function inicializa_juego(){
     juegoIniciado = true;
 };
 
+function cargar_preguntas(){
+
+}
+
 function mostrar_pregunta() {
     var contenedorPregunta = document.getElementById('pregunta');
     var respuestasContenedor = document.getElementsByClassName('respuesta');
@@ -73,7 +77,7 @@ function revisa_si_correcta(r) {
         if (esCorrecta) {
             respuestaSeleccionada.style.backgroundColor = "green";
             document.getElementById("f" + (pregunta_actual + 1)).style.backgroundColor = "green"; 
-            mostrarFlecha();
+            document.getElementById("flecha").style.display="block";
             juegoIniciado = false;
 
         } else {
@@ -83,11 +87,7 @@ function revisa_si_correcta(r) {
         }
     }
 }
-function mostrarFlecha() {
-   
-}
 
-
-function cambia_pregunta(){
-    
+function siguiente_pregunta(){
+    document.getElementById("flecha").style.display="none";
 };

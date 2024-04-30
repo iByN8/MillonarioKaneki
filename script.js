@@ -14,12 +14,14 @@ var preguntas_dificiles=[
 //Variables para llevar el estado actual
 var pregunta_actual = 0;
 var respuestas=['R1','R2','R3','R4'];
+var juegoIniciado = false;
 
 
 function inicializa_juego(){
     document.getElementById("iniciar").style.display = "none";
     pregunta_actual = 0;
     mostrar_pregunta();
+    juegoIniciado = true;
 };
 
 function mostrar_pregunta() {
@@ -41,33 +43,46 @@ function mostrar_pregunta() {
     contenedorPregunta.textContent = preguntaSeleccionada[0]; // Mostrar la pregunta
 
     var letras = ['A)', 'B)', 'C)', 'D)'];
+    var vector = [0, 1, 2, 3];
+    var vectorBarajado = shuffle(vector);
 
     // Asignar respuestas a los botones y remover la clase 'correcta'
     for (var i = 0; i < respuestasContenedor.length; i++) {
-        respuestasContenedor[i].textContent = letras[i] + ' ' +preguntaSeleccionada[i + 1];
-        respuestasContenedor[i].classList.remove('correcta');
+        respuestasContenedor[vectorBarajado[i]].textContent = letras[vectorBarajado[i]] + ' ' +preguntaSeleccionada[i + 1];
+        respuestasContenedor[vectorBarajado[i]].classList.remove('correcta');
         if (i === 0) {
-            respuestasContenedor[i].classList.add('correcta'); // Marcar la respuesta correcta aleatoriamente
+            respuestasContenedor[vectorBarajado[i]].classList.add('correcta'); // Marcar la respuesta correcta aleatoriamente
         }
     }
  
 }
 
-function revisa_si_correcta(r) {
-    var respuestaSeleccionada = document.getElementById(r); // Obtener el elemento de la respuesta seleccionada por su ID
-    var esCorrecta = respuestaSeleccionada.classList.contains('correcta'); // Verificar si la respuesta seleccionada tiene la clase 'correcta'
-
-    if (esCorrecta) {
-        respuestaSeleccionada.style.backgroundColor = "green";
-        document.getElementById("f" + (pregunta_actual + 1)).style.backgroundColor = "green"; 
-        mostrarFlecha();
-
-    } else {
-        respuestaSeleccionada.style.backgroundColor = "red";
-        document.getElementById("f" + (pregunta_actual + 1)).style.backgroundColor = "red";
+function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
     }
+    return array;
 }
 
+function revisa_si_correcta(r) {
+    if(juegoIniciado){
+        var respuestaSeleccionada = document.getElementById(r); // Obtener el elemento de la respuesta seleccionada por su ID
+        var esCorrecta = respuestaSeleccionada.classList.contains('correcta'); // Verificar si la respuesta seleccionada tiene la clase 'correcta'
+
+        if (esCorrecta) {
+            respuestaSeleccionada.style.backgroundColor = "green";
+            document.getElementById("f" + (pregunta_actual + 1)).style.backgroundColor = "green"; 
+            mostrarFlecha();
+            juegoIniciado = false;
+
+        } else {
+            respuestaSeleccionada.style.backgroundColor = "red";
+            document.getElementById("f" + (pregunta_actual + 1)).style.backgroundColor = "red";
+            juegoIniciado = false;
+        }
+    }
+}
 function mostrarFlecha() {
    
 }

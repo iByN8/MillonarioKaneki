@@ -1,27 +1,19 @@
-var preguntas_faciles=[
-    ['¿Cómo se declara una variable en javascript?','var i=0;','i=0','int i=0;','$i=0;'],
-    ['¿Como se llama el creador de C?','Dennis Ritchie','Brian Kernighan','Alan Turing','Freddy Mercury'],
-];
-var preguntas_medias=[
-    ['¿En que año nacio James Gosling?','19 de mayo de 1955','24 de abril de 1992','9 de julio de 1765','31 de febrero 2015','22 de diciembre 1956'],
-    ['¿Que famoso personaje y desarrollador, que actualmente trabaja en Dropbox nació un 31 de enero de 1956?','Guido van Rossum','Larry Page','Mark Zuckerberg','Patrick Volkerding']
-];
-var preguntas_dificiles=[
-    ['¿Cual es el bus real de una memoria que reporta PC-10600?','667Mhz','533Mhz','400Mhz','10600Mhz'],
-    ['¿Cuantas líneas de código tenía la primera version del kernel de Linux (ver 1.0.0)?','176,250','1,800,847','176,240','176,260']
-];
+var preguntas_faciles = []
+var preguntas_medias = []
+var preguntas_dificiles = []
 
-//Variables para llevar el estado actual
 var pregunta_actual = 0;
 var respuestas=['R1','R2','R3','R4'];
 var juegoIniciado = false;
+var archivosCargados = false;
 
 
 function inicializa_juego(){
-    document.getElementById("iniciar").style.display = "none";
+    console.log("iniciando juego")
+    document.getElementById("opciones").style.display = "none";
     pregunta_actual = 0;
     mostrar_pregunta();
-    juegoIniciado = true;
+    juegoIniciado = true;  
 };
 
 function cargar_preguntas(){
@@ -88,6 +80,52 @@ function revisa_si_correcta(r) {
     }
 }
 
+function handleDropdownChange(selectElement) {
+    const selectedValue = selectElement.value;
+    if (selectedValue === "comenzar" && archivosCargados) {
+        inicializa_juego();
+    } else if (selectedValue === "fileInput") {
+        document.getElementById("fileInput").click();
+        selectElement.value = "opcion"
+        if (document.getElementById("fileInput").files) {
+            archivosCargados = true;
+        }
+    }
+}
+
+function handleFileChange(inputElement) {
+    const file = inputElement.files[0];
+    const reader = new FileReader();
+
+    reader.onload = function(e) {
+        const contenido = e.target.result;
+        const lineas = contenido.split('\n');
+
+        // Itera sobre las líneas del archivo
+        for (let i = 0; i < lineas.length; i += 5) {
+            // Obtén la pregunta y las respuestas
+            const pregunta = [];
+            pregunta.push(lineas[i]); // Agrega la pregunta
+    
+            for (let j = i + 1; j < i + 5; j++) {
+                pregunta.push(lineas[j]); // Agrega las respuestas
+            }
+    
+            // Agrega la pregunta y sus respuestas al array de correspondiente
+            if (i < 5) {
+                preguntas_faciles.push(pregunta);
+            } else if (i >= 5 && i < 10) {
+                preguntas_medias.push(pregunta);
+            } else {
+                preguntas_dificiles.push(pregunta);
+            }
+        } 
+    };
+
+    reader.readAsText(file);
+}
+
 function siguiente_pregunta(){
     document.getElementById("flecha").style.display="none";
 };
+ 

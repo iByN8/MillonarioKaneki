@@ -9,7 +9,6 @@
 <body>
     <div id="flecha" class="panel_flecha">
         <section  class="flecha" onclick="siguiente_pregunta()">→</section>
-
     </div>
     <div id="panel_pregunta_respuestas" class="panel_conjunto">
 		<div class="contenedor-figuras">
@@ -41,7 +40,12 @@
             </div>
         </div>
     </div>
-    <div id="iniciar" class="panel_sup" onclick="inicializa_juego()">Comenzar juego</div>
+    <select id="opciones" class="panel_sup" onchange="handleDropdownChange(this)">
+        <span id="textoSeleccionado">Opciones</span>
+        <option value="opcion" style="display: none;" selected>Opciones</option>
+        <option value="comenzar">Comenzar juego</option>
+        <option value="fileInput">Seleccionar archivo<input type="file" id="fileInput" onchange="handleFileChange(this)" style="display: none;"></option>
+      </select>
     <div id="panel_comodin" class="panel_lat">
         <button class="comodin" onclick="usarComodin()">1</button>
         <button class="comodin" onclick="usarComodin()">2</button>

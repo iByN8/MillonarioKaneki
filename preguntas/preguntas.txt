@@ -1,0 +1,30 @@
+¿Cómo se declara una variable en javascript?
+var i=0;
+i=0
+int i=0
+$i=0;
+¿Como se llama el creador de C?
+Dennis Ritchie
+Brian Kernighan
+Alan Turing
+Freddy Mercury
+¿En que año nacio James Gosling?
+19 de mayo de 1955
+24 de abril de 1992
+9 de julio de 1765
+31 de febrero 2015
+¿Que famoso personaje y desarrollador, que actualmente trabaja en Dropbox nació un 31 de enero de 1956?
+Guido van Rossum
+Larry Page
+Mark Zuckerberg
+Patrick Volkerding
+¿Cual es el bus real de una memoria que reporta PC-10600?
+667Mhz
+533Mhz
+400Mhz
+10600Mhz
+¿Cuantas líneas de código tenía la primera version del kernel de Linux (ver 1.0.0)?
+176,250
+1,800,847
+176,240
+176,260

@@ -127,7 +127,22 @@ function revisa_si_correcta(r) {
             respuestaSeleccionada.style.backgroundColor = "red";
             document.getElementById("f" + (pregunta_actual + 1)).style.backgroundColor = "red";
             juegoIniciado = false;
+            mostrarCorrecta();
             alert("¡Has perdido, hoy no sera el dia de ser millonario!")
+        }
+    }
+}
+
+function mostrarCorrecta() {
+    // Obtener todas las respuestas
+    var respuestas = document.getElementsByClassName("respuesta");
+
+    // Iterar sobre las respuestas
+    for (var i = 0; i < respuestas.length; i++) {
+        // Verificar si la respuesta es correcta
+        if (respuestas[i].classList.contains("correcta")) {
+            // Cambiar el fondo de la respuesta correcta a verde
+            respuestas[i].style.backgroundColor = "green";
         }
     }
 }
@@ -142,8 +157,107 @@ function respuestas_default(){
 function siguiente_pregunta(){
     document.getElementById("flecha").style.display="none";
     preguntaArray++;
+    undoComodin50();
     respuestas_default();
     mostrar_pregunta();
+    if(!comodin){
+        document.getElementById("comodin").disabled = true;
+    }
+    if(!comodin_Publico){
+        document.getElementById("comodinPublico").disabled = true;
+    }
+    if(!comodin_Llamada){
+        document.getElementById("comodinLlamada").disabled = true;
+    }
+    if(!comodin_50){
+        document.getElementById("comodin50").disabled = true;
+    }
     
 };
+
+var comodin = true;
+var comodin_Publico = true;
+var comodin_Llamada = true;
+var comodin_50 = true;
+
+function usarComodin(){
+    if(juegoIniciado){
+    var boton = document.getElementById("comodin");
+    if(comodin){
+        boton.style.opacity = "0.1";
+        comodin = false;
+    }else{
+        boton.style.opacity = "1";
+        comodin = true;
+    }
+}
+}
+
+function comodinPublico(){
+    if(juegoIniciado){
+    var boton = document.getElementById("comodinPublico");
+    if(comodin_Publico){
+        boton.style.opacity = "0.1";
+        comodin_Publico = false;
+    }else{
+        boton.style.opacity = "1";
+        comodin_Publico = true;
+    }
+}
  
+}
+ 
+function comodinLlamada(){
+    if(juegoIniciado){
+    var boton = document.getElementById("comodinLlamada");
+    if(comodin_Llamada){
+        boton.style.opacity = "0.1";
+        comodin_Llamada = false;
+     }else{
+        boton.style.opacity = "1";
+        comodin_Llamada = true;
+     }
+    }
+}
+
+function comodin50() {
+    if(juegoIniciado){
+    var boton = document.getElementById("comodin50");
+    if(comodin_50){
+        boton.style.opacity = "0.1";
+        comodin_50 = false;
+        usarComodin50();
+     }else{
+        boton.style.opacity = "1";
+        comodin_50 = true;
+        undoComodin50();
+     }
+    }    
+}
+
+function usarComodin50() {
+    var respuestas = document.getElementsByClassName("respuesta");
+    var incorrectas = 0;
+
+    for (var i = 0; i < respuestas.length; i++) {
+        if (!respuestas[i].classList.contains("desactivada") && !respuestas[i].classList.contains("correcta")) {
+            respuestas[i].classList.add("desactivada");
+            incorrectas++;
+
+            if (incorrectas === 2) {
+                break;
+            }
+        }
+    }
+}
+
+function undoComodin50() {
+    var respuestas = document.getElementsByClassName("respuesta");
+
+    for (var i = 0; i < respuestas.length; i++) {
+        if (respuestas[i].classList.contains("desactivada")) {
+
+            respuestas[i].classList.remove("desactivada");
+        }
+    }
+}

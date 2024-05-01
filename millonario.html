@@ -47,10 +47,10 @@
         <option value="fileInput">Seleccionar archivo<input type="file" id="fileInput" onchange="handleFileChange(this)" style="display: none;"></option>
       </select>
     <div id="panel_comodin" class="panel_lat">
-        <button class="comodin" onclick="usarComodin()">1</button>
-        <button class="comodin" onclick="usarComodin()">2</button>
-        <button class="comodin" onclick="usarComodin()">3</button>
-        <button class="comodin" onclick="usarComodin()">4</button>
+        <button id="comodin" class="comodin" onclick="usarComodin()"></button>
+        <button id="comodinPublico" class="comodin" onclick="comodinPublico()">🗣️</button>
+        <button id="comodinLlamada" class="comodin" onclick="comodinLlamada()">📱</button>
+        <button id="comodin50" class="comodin" onclick="comodin50()">50%</button>
     </div>
 </body>
 </html>

@@ -1,30 +1,75 @@
-¿Cómo se declara una variable en javascript?
+¿Cómo se declara una variable en JavaScript?
 var i=0;
 i=0
-int i=0
+int i=0;
 $i=0;
-¿Como se llama el creador de C?
+¿Cómo se llama el creador de C?
 Dennis Ritchie
 Brian Kernighan
 Alan Turing
 Freddy Mercury
-¿En que año nacio James Gosling?
+¿En qué año nació James Gosling?
 19 de mayo de 1955
 24 de abril de 1992
 9 de julio de 1765
 31 de febrero 2015
-¿Que famoso personaje y desarrollador, que actualmente trabaja en Dropbox nació un 31 de enero de 1956?
+¿Qué famoso personaje y desarrollador, que actualmente trabaja en Dropbox, nació un 31 de enero de 1956?
 Guido van Rossum
 Larry Page
 Mark Zuckerberg
 Patrick Volkerding
-¿Cual es el bus real de una memoria que reporta PC-10600?
-667Mhz
+¿Cuál es el bus real de una memoria que reporta PC-10600?
 533Mhz
-400Mhz
+667Mhz
 10600Mhz
-¿Cuantas líneas de código tenía la primera version del kernel de Linux (ver 1.0.0)?
+400Mhz
+¿Cuántas líneas de código tenía la primera versión del kernel de Linux (ver 1.0.0)?
+176,240
 176,250
 1,800,847
-176,240
 176,260
+¿Quién es considerado el padre de la inteligencia artificial?
+Alan Turing
+John McCarthy
+Marvin Minsky
+Elon Musk
+¿Qué significa la sigla "HTML"?
+Hyper Text Markup Language
+High Text Main Language
+Hyperlinking Text Main Language
+Hyperloop Technology Markup Language
+¿Cuál de las siguientes no es una función de JavaScript?
+confirm()
+alert()
+print()
+prompt()
+¿Cuál es el lenguaje de programación más popular según el índice TIOBE?
+JavaScript
+Python
+Java
+C++
+¿Qué significa CSS?
+Cascading Style Sheets
+Creative Style Sheets
+Computer Style Sheets
+Colorful Style Sheets
+¿Quién es el CEO de Tesla?
+Elon Musk
+Jeff Bezos
+Mark Zuckerberg
+Tim Cook
+¿En qué año se fundó Google?
+1998
+2000
+1995
+2002
+¿Cuál es el sistema operativo desarrollado por Apple?
+macOS
+Windows
+Linux
+Android
+¿Qué es un algoritmo?
+Un conjunto de instrucciones para resolver un problema
+Un programa de computadora
+Un lenguaje de programación
+Un dispositivo de hardware

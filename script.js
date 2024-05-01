@@ -1,84 +1,13 @@
 var preguntas_faciles = []
 var preguntas_medias = []
 var preguntas_dificiles = []
+var preguntas = []
 
 var pregunta_actual = 0;
+var preguntaArray = 0;
 var respuestas=['R1','R2','R3','R4'];
 var juegoIniciado = false;
 var archivosCargados = false;
-
-
-function inicializa_juego(){
-    console.log("iniciando juego")
-    document.getElementById("opciones").style.display = "none";
-    pregunta_actual = 0;
-    mostrar_pregunta();
-    juegoIniciado = true;  
-};
-
-function cargar_preguntas(){
-
-}
-
-function mostrar_pregunta() {
-    var contenedorPregunta = document.getElementById('pregunta');
-    var respuestasContenedor = document.getElementsByClassName('respuesta');
-    var preguntas;
-
-    // Decidir el conjunto de preguntas basado en el nivel de dificultad según el avance
-    if (pregunta_actual < 5) {
-        preguntas = preguntas_faciles;
-    } else if (pregunta_actual >= 5 && pregunta_actual < 10) {
-        preguntas = preguntas_medias;
-    } else {
-        preguntas = preguntas_dificiles;
-    }
-
-    // Elegir la pregunta adecuada del array basado en el índice 'pregunta_actual'
-    var preguntaSeleccionada = preguntas[pregunta_actual % preguntas.length]; // Usar módulo para ciclar preguntas si fuera necesario
-    contenedorPregunta.textContent = preguntaSeleccionada[0]; // Mostrar la pregunta
-
-    var letras = ['A)', 'B)', 'C)', 'D)'];
-    var vector = [0, 1, 2, 3];
-    var vectorBarajado = shuffle(vector);
-
-    // Asignar respuestas a los botones y remover la clase 'correcta'
-    for (var i = 0; i < respuestasContenedor.length; i++) {
-        respuestasContenedor[vectorBarajado[i]].textContent = letras[vectorBarajado[i]] + ' ' +preguntaSeleccionada[i + 1];
-        respuestasContenedor[vectorBarajado[i]].classList.remove('correcta');
-        if (i === 0) {
-            respuestasContenedor[vectorBarajado[i]].classList.add('correcta'); // Marcar la respuesta correcta aleatoriamente
-        }
-    }
- 
-}
-
-function shuffle(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-}
-
-function revisa_si_correcta(r) {
-    if(juegoIniciado){
-        var respuestaSeleccionada = document.getElementById(r); // Obtener el elemento de la respuesta seleccionada por su ID
-        var esCorrecta = respuestaSeleccionada.classList.contains('correcta'); // Verificar si la respuesta seleccionada tiene la clase 'correcta'
-
-        if (esCorrecta) {
-            respuestaSeleccionada.style.backgroundColor = "green";
-            document.getElementById("f" + (pregunta_actual + 1)).style.backgroundColor = "green"; 
-            document.getElementById("flecha").style.display="block";
-            juegoIniciado = false;
-
-        } else {
-            respuestaSeleccionada.style.backgroundColor = "red";
-            document.getElementById("f" + (pregunta_actual + 1)).style.backgroundColor = "red";
-            juegoIniciado = false;
-        }
-    }
-}
 
 function handleDropdownChange(selectElement) {
     const selectedValue = selectElement.value;
@@ -112,9 +41,9 @@ function handleFileChange(inputElement) {
             }
     
             // Agrega la pregunta y sus respuestas al array de correspondiente
-            if (i < 5) {
+            if (i < 5*5) {
                 preguntas_faciles.push(pregunta);
-            } else if (i >= 5 && i < 10) {
+            } else if (i >= 5*5 && i < 10*5) {
                 preguntas_medias.push(pregunta);
             } else {
                 preguntas_dificiles.push(pregunta);
@@ -125,7 +54,96 @@ function handleFileChange(inputElement) {
     reader.readAsText(file);
 }
 
+function inicializa_juego(){
+    console.log("iniciando juego")
+    document.getElementById("opciones").style.display = "none";
+    pregunta_actual = 0;
+    preguntas = preguntas_faciles;
+    shuffle(preguntas);
+    mostrar_pregunta(); 
+};
+
+function mostrar_pregunta() {
+    juegoIniciado = true; 
+    var contenedorPregunta = document.getElementById('pregunta');
+    var respuestasContenedor = document.getElementsByClassName('respuesta');
+
+    // Decidir el conjunto de preguntas basado en el nivel de dificultad según el avance
+    if (pregunta_actual == 5) {
+        preguntas = preguntas_medias;
+        shuffle(preguntas);
+        preguntaArray = 0;
+    } else if (pregunta_actual == 10) {
+        preguntas = preguntas_dificiles;
+        shuffle(preguntas);
+        preguntaArray = 0;
+    } 
+
+    // Elegir la pregunta adecuada del array basado en el índice 'preguntaArray'
+    var preguntaSeleccionada = preguntas[preguntaArray]; 
+    contenedorPregunta.textContent = preguntaSeleccionada[0]; // Mostrar la pregunta
+
+    var letras = ['A)', 'B)', 'C)', 'D)'];
+    var vector = [0, 1, 2, 3];
+    var vectorBarajado = shuffle(vector);
+
+    // Asignar respuestas a los botones y remover la clase 'correcta'
+    for (var i = 0; i < respuestasContenedor.length; i++) {
+        respuestasContenedor[vectorBarajado[i]].textContent = letras[vectorBarajado[i]] + ' ' +preguntaSeleccionada[i + 1];
+        respuestasContenedor[vectorBarajado[i]].classList.remove('correcta');
+        if (i === 0) {
+            respuestasContenedor[vectorBarajado[i]].classList.add('correcta'); // Marcar la respuesta correcta aleatoriamente
+        }
+    }
+ 
+}
+
+function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
+function revisa_si_correcta(r) {
+    if(juegoIniciado){
+        var respuestaSeleccionada = document.getElementById(r); // Obtener el elemento de la respuesta seleccionada por su ID
+        var esCorrecta = respuestaSeleccionada.classList.contains('correcta'); // Verificar si la respuesta seleccionada tiene la clase 'correcta'
+
+        if (esCorrecta) {
+            respuestaSeleccionada.style.backgroundColor = "green";
+            document.getElementById("f" + (pregunta_actual + 1)).style.backgroundColor = "green"; 
+            pregunta_actual++;
+            juegoIniciado = false;
+            if(pregunta_actual<15){
+            document.getElementById("flecha").style.display="block";
+
+            }else{
+                alert("¡Enhorabuena! ¡Hoy es tu dia de suerte, te has vuelto millonario!")
+            }
+
+        } else {
+            respuestaSeleccionada.style.backgroundColor = "red";
+            document.getElementById("f" + (pregunta_actual + 1)).style.backgroundColor = "red";
+            juegoIniciado = false;
+            alert("¡Has perdido, hoy no sera el dia de ser millonario!")
+        }
+    }
+}
+
+function respuestas_default(){
+    var respuestasContenedor = document.getElementsByClassName('respuesta');
+    for (var i = 0; i < respuestasContenedor.length; i++) {
+        respuestasContenedor[i].style.backgroundColor = "";
+    }
+}
+
 function siguiente_pregunta(){
     document.getElementById("flecha").style.display="none";
+    preguntaArray++;
+    respuestas_default();
+    mostrar_pregunta();
+    
 };
  

@@ -11,11 +11,11 @@ var archivosCargados = false;
 
 function handleDropdownChange(selectElement) {
     const selectedValue = selectElement.value;
+    selectElement.value = ""
     if (selectedValue === "comenzar" && archivosCargados) {
         inicializa_juego();
     } else if (selectedValue === "fileInput") {
         document.getElementById("fileInput").click();
-        selectElement.value = "opcion"
         if (document.getElementById("fileInput").files) {
             archivosCargados = true;
         }
@@ -67,6 +67,7 @@ function mostrar_pregunta() {
     juegoIniciado = true; 
     var contenedorPregunta = document.getElementById('pregunta');
     var respuestasContenedor = document.getElementsByClassName('respuesta');
+    document.getElementById("f" + (pregunta_actual + 1)).style.backgroundColor = "yellow";
 
     // Decidir el conjunto de preguntas basado en el nivel de dificultad según el avance
     if (pregunta_actual == 5) {

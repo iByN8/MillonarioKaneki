@@ -18,6 +18,7 @@ body{
 	justify-content: center;
     align-items: center; 
 	display: flex;
+    background-color: rgb(47, 0, 1);
 }
 .panel_conjunto {
     position: absolute;
@@ -34,7 +35,10 @@ body{
     height: 30%;
     display: flex; 
     flex-direction: column;
-	background-color: rgb(8, 8, 8, 0.90);
+	background-image: url(diseños/modern-abstract-highspeed-light-motion-effect-black-background-vector-illustration_54768-568.avif);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
 
 
@@ -48,6 +52,7 @@ body{
 .respuesta {
     width: 48%;
     color: white;
+    background-color: rgb(47, 0, 1);
 }
 
 .desactivada {
@@ -107,7 +112,10 @@ body{
     flex-direction: column;
     justify-content: center;
     padding: 10px;
-    background-color: rgb(8, 8, 8, 0.90);
+    background-image: url(diseños/istockphoto-1141372904-612x612.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 300%;
 }
 
 .panel_sup span {
@@ -121,7 +129,7 @@ body{
 
 #panel_comodin {
     position: absolute;
-    top: 10%;
+    top: 15%;
     right: 10px;
     transform: translateY(-50%);
     display: flex;
@@ -134,23 +142,25 @@ body{
     height: 40px;
     border-radius: 50%;
     margin-bottom: 10px;
-    background-color: aquamarine;
+    background-color: rgb(197, 105, 105);
 }
 
 .contenedor-figuras {
-	height: 10%;
+	height: 5%;
 	justify-content: space-between;
     align-items: center; 
 	margin-bottom: 3%;
     display: flex; /* Utiliza flexbox para alinear las figuras en fila */
+    background-color: rgb(47, 0, 1);
 }
 
 .figura {
-    width: 40px;
-    height: 40px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%; /* Hace que las figuras sean redondas */
     margin-right: 5px; /* Espacio entre las figuras */
-    background-color: #ccc; /* Color de fondo de las figuras */
+    background-color: rgb(197, 105, 105); /* Color de fondo de las figuras */
+    font-size: small;
     justify-content: center;
     align-items: center; 
 	display: flex;

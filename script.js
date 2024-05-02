@@ -11,7 +11,7 @@ var archivosCargados = false;
 
 function handleDropdownChange(selectElement) {
     const selectedValue = selectElement.value;
-    selectElement.value = ""
+    selectElement.value = "Opciones"
     if (selectedValue === "comenzar" && archivosCargados) {
         inicializa_juego();
     } else if (selectedValue === "fileInput") {
@@ -162,16 +162,16 @@ function siguiente_pregunta(){
     respuestas_default();
     mostrar_pregunta();
     if(!comodin){
-        document.getElementById("comodin").disabled = true;
+        document.getElementById("comodin").classList.add("comodinUsado");
     }
     if(!comodin_Publico){
-        document.getElementById("comodinPublico").disabled = true;
+        document.getElementById("comodinPublico").classList.add("comodinUsado");
     }
     if(!comodin_Llamada){
-        document.getElementById("comodinLlamada").disabled = true;
+        document.getElementById("comodinLlamada").classList.add("comodinUsado");
     }
     if(!comodin_50){
-        document.getElementById("comodin50").disabled = true;
+        document.getElementById("comodin50").classList.add("comodinUsado");
     }
     
 };
@@ -185,9 +185,9 @@ function usarComodin(){
     if(juegoIniciado){
     var boton = document.getElementById("comodin");
     if(comodin){
-        boton.style.opacity = "0.1";
+        boton.style.opacity = "0.5";
         comodin = false;
-    }else{
+    }else if(!boton.classList.contains("comodinUsado")){
         boton.style.opacity = "1";
         comodin = true;
     }
@@ -198,9 +198,9 @@ function comodinPublico(){
     if(juegoIniciado){
     var boton = document.getElementById("comodinPublico");
     if(comodin_Publico){
-        boton.style.opacity = "0.1";
+        boton.style.opacity = "0.5";
         comodin_Publico = false;
-    }else{
+    }else if(!boton.classList.contains("comodinUsado")){
         boton.style.opacity = "1";
         comodin_Publico = true;
     }
@@ -212,9 +212,9 @@ function comodinLlamada(){
     if(juegoIniciado){
     var boton = document.getElementById("comodinLlamada");
     if(comodin_Llamada){
-        boton.style.opacity = "0.1";
+        boton.style.opacity = "0.5";
         comodin_Llamada = false;
-     }else{
+     }else if(!boton.classList.contains("comodinUsado")){
         boton.style.opacity = "1";
         comodin_Llamada = true;
      }
@@ -225,10 +225,10 @@ function comodin50() {
     if(juegoIniciado){
     var boton = document.getElementById("comodin50");
     if(comodin_50){
-        boton.style.opacity = "0.1";
+        boton.style.opacity = "0.5";
         comodin_50 = false;
         usarComodin50();
-     }else{
+     }else if(!boton.classList.contains("comodinUsado")){
         boton.style.opacity = "1";
         comodin_50 = true;
         undoComodin50();

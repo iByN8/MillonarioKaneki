@@ -188,8 +188,8 @@ body{
 
 .panelOpciones{
     position: absolute;
-    top: 25%;
-    left: 35%;
+    top: 20%;
+    left: 30%;
     font: bold 1.5em sans-serif;
     color: #ffffff;
     text-align: center;
@@ -198,4 +198,23 @@ body{
     background-color: rgb(47, 0, 1);
     border: 2px solid #000000;
     border-radius: 10px;
+    height: 35%;
+    width: 40%;
+}
+
+.opcionEncabezado {
+    margin-top: 5%;
+    margin-bottom: 10%;
+    border-bottom: 4px solid #ffffff; /* Asegúrate de agregar 'solid' para especificar el tipo de borde */
+    display: inline-block; /* Esto permite que el borde se ajuste al contenido */
+    padding-bottom: 2px; /* Ajusta el espacio entre el texto y el borde */
+    text-decoration: none; /* Evita el subrayado predeterminado */
+}
+
+.opcion{
+    margin-bottom: 2%;
+}
+
+.opcion:hover{
+    color: #c0be3f;
 }

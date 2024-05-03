@@ -42,8 +42,10 @@
     </div>
     <div id="logo" class="logo" onclick="showOptions()"></div>
     <div id="panelOpciones" class="panelOpciones" style="display: none;">
-        <div value="comenzar" onclick="inicializa_juego()">Comenzar juego</div>
-        <div value="fileInput" onclick="clickInput()">Seleccionar archivo<input type="file" id="fileInput" onchange="handleFileChange(this)" style="display: none;"></div>
+        <div value="opcion" class="opcionEncabezado">OPCIONES</div>
+        <div value="comenzar" class="opcion" onclick="comenzar()">Comenzar juego</div>
+        <div value="fileInput" class="opcion" onclick="clickInput()">Seleccionar archivo<input type="file" id="fileInput" onchange="handleFileChange(this)" style="display: none;"></div>
+        <div value="reinicio" class="opcion" onclick="reiniciar()">Reiniciar juego</div>
     </div>
 
     <div id="panel_comodin" class="panel_lat">

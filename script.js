@@ -7,7 +7,6 @@ var pregunta_actual = 0;
 var preguntaArray = 0;
 var respuestas=['R1','R2','R3','R4'];
 var juegoIniciado = false;
-var archivosCargados = false;
 var opcionesAbiertas = false;
 
 function showOptions(){
@@ -23,9 +22,20 @@ function showOptions(){
 
 function clickInput(){
         document.getElementById("fileInput").click();
-        if (document.getElementById("fileInput").files) {
-            archivosCargados = true;
-        }
+}
+
+function comenzar(){
+    var fileList = document.getElementById("fileInput").files;
+    if (fileList.length>0) {
+        inicializa_juego()
+        document.getElementById("panelOpciones").style.display = "none";
+        opcionesAbiertas = false;
+    }
+
+}
+
+function reiniciar(){
+    window.location.reload();
 }
 
 function handleFileChange(inputElement) {
@@ -61,13 +71,11 @@ function handleFileChange(inputElement) {
 }
 
 function inicializa_juego(){
-    if (archivosCargados) {
-    console.log("iniciando juego")
-    pregunta_actual = 0;
-    preguntas = preguntas_faciles;
-    shuffle(preguntas);
-    mostrar_pregunta();  
-} 
+        console.log("iniciando juego")
+        pregunta_actual = 0;
+        preguntas = preguntas_faciles;
+        shuffle(preguntas);
+        mostrar_pregunta();  
 };
 
 function mostrar_pregunta() {
@@ -128,7 +136,7 @@ function revisa_si_correcta(r) {
             document.getElementById("flecha").style.display="block";
 
             }else{
-                alert("¡Enhorabuena! ¡Hoy es tu dia de suerte, te has vuelto millonario!")
+                console.log("¡Enhorabuena! ¡Hoy es tu dia de suerte, te has vuelto millonario!")
             }
 
         } else {
@@ -136,7 +144,7 @@ function revisa_si_correcta(r) {
             document.getElementById("f" + (pregunta_actual + 1)).style.backgroundColor = "red";
             juegoIniciado = false;
             mostrarCorrecta();
-            alert("¡Has perdido, hoy no sera el dia de ser millonario!")
+            console.log("¡Has perdido, hoy no sera el dia de ser millonario!")
         }
     }
 }

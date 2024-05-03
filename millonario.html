@@ -40,11 +40,12 @@
             </div>
         </div>
     </div>
-    <select id="opciones" class="panel_sup" onchange="handleDropdownChange(this)">
-        <option value="opcion" style="display: none;" selected>Opciones</option>
-        <option value="comenzar">Comenzar juego</option>
-        <option value="fileInput">Seleccionar archivo<input type="file" id="fileInput" onchange="handleFileChange(this)" style="display: none;"></option>
-      </select>
+    <div id="logo" class="logo" onclick="showOptions()"></div>
+    <div id="panelOpciones" class="panelOpciones" style="display: none;">
+        <div value="comenzar" onclick="inicializa_juego()">Comenzar juego</div>
+        <div value="fileInput" onclick="clickInput()">Seleccionar archivo<input type="file" id="fileInput" onchange="handleFileChange(this)" style="display: none;"></div>
+    </div>
+
     <div id="panel_comodin" class="panel_lat">
         <button id="comodin" class="comodin" onclick="usarComodin()"></button>
         <button id="comodinPublico" class="comodin" onclick="comodinPublico()">🗣️</button>

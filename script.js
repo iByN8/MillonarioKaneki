@@ -8,18 +8,24 @@ var preguntaArray = 0;
 var respuestas=['R1','R2','R3','R4'];
 var juegoIniciado = false;
 var archivosCargados = false;
+var opcionesAbiertas = false;
 
-function handleDropdownChange(selectElement) {
-    const selectedValue = selectElement.value;
-    selectElement.value = "Opciones"
-    if (selectedValue === "comenzar" && archivosCargados) {
-        inicializa_juego();
-    } else if (selectedValue === "fileInput") {
+function showOptions(){
+    if(!opcionesAbiertas){
+        document.getElementById("panelOpciones").style.display = "block";
+        opcionesAbiertas = true;
+    }else{
+        document.getElementById("panelOpciones").style.display = "none";
+        opcionesAbiertas = false;
+    }
+
+}
+
+function clickInput(){
         document.getElementById("fileInput").click();
         if (document.getElementById("fileInput").files) {
             archivosCargados = true;
         }
-    }
 }
 
 function handleFileChange(inputElement) {
@@ -55,12 +61,13 @@ function handleFileChange(inputElement) {
 }
 
 function inicializa_juego(){
+    if (archivosCargados) {
     console.log("iniciando juego")
-    document.getElementById("opciones").style.display = "none";
     pregunta_actual = 0;
     preguntas = preguntas_faciles;
     shuffle(preguntas);
-    mostrar_pregunta(); 
+    mostrar_pregunta();  
+} 
 };
 
 function mostrar_pregunta() {

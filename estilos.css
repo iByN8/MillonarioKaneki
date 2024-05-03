@@ -172,3 +172,30 @@ body{
     font-size: 100px;
     display: none;
 }
+
+.logo{
+    top: 5%;
+    left: 5%;
+    width: 40px;
+    height: 40px;
+    border: 2px solid #000000;
+    border-radius: 50%;
+    position: absolute;
+    background-image: url(diseños/99fdadba-e11c-444b-920e-3b8c9ee5bcba-profile_image-70x70.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.panelOpciones{
+    position: absolute;
+    top: 25%;
+    left: 35%;
+    font: bold 1.5em sans-serif;
+    color: #ffffff;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(47, 0, 1);
+    border: 2px solid #000000;
+    border-radius: 10px;
+}

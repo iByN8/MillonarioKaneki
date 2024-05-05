@@ -107,7 +107,7 @@ function mostrar_pregunta() {
     for (var i = 0; i < respuestasContenedor.length; i++) {
         respuestasContenedor[vectorBarajado[i]].textContent = letras[vectorBarajado[i]] + ' ' +preguntaSeleccionada[i + 1];
         respuestasContenedor[vectorBarajado[i]].classList.remove('correcta');
-        respuestasContenedor[vectorBarajado[i]].style.display="none";
+        respuestasContenedor[vectorBarajado[i]].style.visibility = "hidden";
         if (i === 0) {
             respuestasContenedor[vectorBarajado[i]].classList.add('correcta');
         }
@@ -133,7 +133,7 @@ function mostrarPreguntas(){
         for (var i = 0; i < respuestasContenedor.length; i++) {
             (function(i) {
                 setTimeout(function() {
-                    respuestasContenedor[i].style.display = 'block';
+                    respuestasContenedor[i].style.visibility = "visible";
                 }, 3000 * i);
             })(i);
         }
@@ -311,7 +311,7 @@ function usarComodinReroll(){
     for (var i = 0; i < respuestasContenedor.length; i++) {
         respuestasContenedor[vectorBarajado[i]].textContent = letras[vectorBarajado[i]] + ' ' +preguntaSeleccionada[i + 1];
         respuestasContenedor[vectorBarajado[i]].classList.remove('correcta');
-        respuestasContenedor[vectorBarajado[i]].style.display="none";
+        respuestasContenedor[vectorBarajado[i]].style.visibility = "hidden";
         if (i === 0) {
             respuestasContenedor[vectorBarajado[i]].classList.add('correcta'); // Marcar la respuesta correcta aleatoriamente
         }

@@ -107,11 +107,12 @@ function mostrar_pregunta() {
     for (var i = 0; i < respuestasContenedor.length; i++) {
         respuestasContenedor[vectorBarajado[i]].textContent = letras[vectorBarajado[i]] + ' ' +preguntaSeleccionada[i + 1];
         respuestasContenedor[vectorBarajado[i]].classList.remove('correcta');
+        respuestasContenedor[vectorBarajado[i]].style.display="none";
         if (i === 0) {
-            respuestasContenedor[vectorBarajado[i]].classList.add('correcta'); // Marcar la respuesta correcta aleatoriamente
+            respuestasContenedor[vectorBarajado[i]].classList.add('correcta');
         }
     }
- 
+    respuestasContenedor[0].classList.add('noMostrado');
 }
 
 function shuffle(array) {
@@ -120,6 +121,24 @@ function shuffle(array) {
         [array[i], array[j]] = [array[j], array[i]];
     }
     return array;
+}
+
+function mostrarPreguntas(){
+    var respuestaSeleccionada = document.getElementById('R1');
+    
+    if(respuestaSeleccionada.classList.contains('noMostrado')){
+        var contenedorPregunta = document.getElementById('pregunta');
+        var respuestasContenedor = document.getElementsByClassName('respuesta');
+        var preguntaSeleccionada = preguntas[preguntaArray];
+        for (var i = 0; i < respuestasContenedor.length; i++) {
+            (function(i) {
+                setTimeout(function() {
+                    respuestasContenedor[i].style.display = 'block';
+                }, 3000 * i);
+            })(i);
+        }
+    }
+    respuestaSeleccionada.classList.remove('noMostrado');
 }
 
 function revisa_si_correcta(r) {

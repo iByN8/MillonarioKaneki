@@ -73,3 +73,18 @@ Un conjunto de instrucciones para resolver un problema
 Un programa de computadora
 Un lenguaje de programación
 Un dispositivo de hardware
+¿Qué estructura de datos se utiliza típicamente para implementar una cola de prioridades?
+Heap
+Array
+Lista enlazada
+Árbol binario
+¿Cuál es el protocolo principal utilizado para la transmisión de páginas web?
+HTTP
+FTP
+SMTP
+TCP
+¿Quién inventó el lenguaje de programación Python?
+Guido van Rossum
+Dennis Ritchie
+James Gosling
+Larry Wall

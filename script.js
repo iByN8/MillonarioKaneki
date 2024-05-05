@@ -59,7 +59,7 @@ function handleFileChange(inputElement) {
             // Agrega la pregunta y sus respuestas al array de correspondiente
             if (i < 6*5) {
                 preguntas_faciles.push(pregunta);
-            } else if (i >= 6*5 && i < 11*5) {
+            } else if (i >= 6*5 && i < 12*5) {
                 preguntas_medias.push(pregunta);
             } else {
                 preguntas_dificiles.push(pregunta);
@@ -176,7 +176,7 @@ function siguiente_pregunta(){
     undoComodin50();
     respuestas_default();
     mostrar_pregunta();
-    if(!comodin){
+    if(!comodin_Reroll){
         document.getElementById("comodinReroll").classList.add("comodinUsado");
     }
     if(!comodin_Publico){

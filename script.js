@@ -311,8 +311,10 @@ function usarComodinReroll(){
     for (var i = 0; i < respuestasContenedor.length; i++) {
         respuestasContenedor[vectorBarajado[i]].textContent = letras[vectorBarajado[i]] + ' ' +preguntaSeleccionada[i + 1];
         respuestasContenedor[vectorBarajado[i]].classList.remove('correcta');
+        respuestasContenedor[vectorBarajado[i]].style.display="none";
         if (i === 0) {
             respuestasContenedor[vectorBarajado[i]].classList.add('correcta'); // Marcar la respuesta correcta aleatoriamente
         }
     }
+    respuestasContenedor[0].classList.add('noMostrado');
 }

@@ -57,9 +57,9 @@ function handleFileChange(inputElement) {
             }
     
             // Agrega la pregunta y sus respuestas al array de correspondiente
-            if (i < 5*5) {
+            if (i < 6*5) {
                 preguntas_faciles.push(pregunta);
-            } else if (i >= 5*5 && i < 10*5) {
+            } else if (i >= 6*5 && i < 11*5) {
                 preguntas_medias.push(pregunta);
             } else {
                 preguntas_dificiles.push(pregunta);
@@ -177,7 +177,7 @@ function siguiente_pregunta(){
     respuestas_default();
     mostrar_pregunta();
     if(!comodin){
-        document.getElementById("comodin").classList.add("comodinUsado");
+        document.getElementById("comodinReroll").classList.add("comodinUsado");
     }
     if(!comodin_Publico){
         document.getElementById("comodinPublico").classList.add("comodinUsado");
@@ -191,20 +191,18 @@ function siguiente_pregunta(){
     
 };
 
-var comodin = true;
+var comodin_Reroll = true;
 var comodin_Publico = true;
 var comodin_Llamada = true;
 var comodin_50 = true;
 
-function usarComodin(){
+function comodinReroll(){
     if(juegoIniciado){
-    var boton = document.getElementById("comodin");
-    if(comodin){
+    var boton = document.getElementById("comodinReroll");
+    if(comodin_Reroll){
         boton.style.opacity = "0.5";
-        comodin = false;
-    }else if(!boton.classList.contains("comodinUsado")){
-        boton.style.opacity = "1";
-        comodin = true;
+        comodin_Reroll = false;
+        usarComodinReroll()
     }
 }
 }
@@ -274,6 +272,28 @@ function undoComodin50() {
         if (respuestas[i].classList.contains("desactivada")) {
 
             respuestas[i].classList.remove("desactivada");
+        }
+    }
+}
+
+
+function usarComodinReroll(){
+    var contenedorPregunta = document.getElementById('pregunta');
+    var respuestasContenedor = document.getElementsByClassName('respuesta');
+
+    var preguntaSeleccionada = preguntas[5]; 
+    contenedorPregunta.textContent = preguntaSeleccionada[0]; // Mostrar la pregunta
+
+    var letras = ['A)', 'B)', 'C)', 'D)'];
+    var vector = [0, 1, 2, 3];
+    var vectorBarajado = shuffle(vector);
+
+    // Asignar respuestas a los botones y remover la clase 'correcta'
+    for (var i = 0; i < respuestasContenedor.length; i++) {
+        respuestasContenedor[vectorBarajado[i]].textContent = letras[vectorBarajado[i]] + ' ' +preguntaSeleccionada[i + 1];
+        respuestasContenedor[vectorBarajado[i]].classList.remove('correcta');
+        if (i === 0) {
+            respuestasContenedor[vectorBarajado[i]].classList.add('correcta'); // Marcar la respuesta correcta aleatoriamente
         }
     }
 }

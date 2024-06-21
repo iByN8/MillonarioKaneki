@@ -56,8 +56,8 @@ body{
 }
 
 .desactivada {
-    opacity: 0.5; /* Reducir la opacidad */
-    pointer-events: none; /* Deshabilitar eventos de puntero */
+    opacity: 0.5;
+    pointer-events: none;
 }
 
 .rizq {
@@ -138,16 +138,16 @@ body{
 	justify-content: space-between;
     align-items: center; 
 	margin-bottom: 3%;
-    display: flex; /* Utiliza flexbox para alinear las figuras en fila */
+    display: flex;
     background-color: rgb(47, 0, 1);
 }
 
 .figura {
     width: 20px;
     height: 20px;
-    border-radius: 50%; /* Hace que las figuras sean redondas */
-    margin-right: 5px; /* Espacio entre las figuras */
-    background-color: rgb(197, 105, 105); /* Color de fondo de las figuras */
+    border-radius: 50%;
+    margin-right: 5px;
+    background-color: rgb(197, 105, 105);
     font-size: small;
     justify-content: center;
     align-items: center; 
@@ -166,8 +166,8 @@ body{
 .logo{
     top: 5%;
     left: 5%;
-    width: 40px;
-    height: 40px;
+    width: 75px;
+    height: 75px;
     border: 2px solid #000000;
     border-radius: 50%;
     position: absolute;

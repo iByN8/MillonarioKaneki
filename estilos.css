@@ -102,20 +102,11 @@ body{
     position: absolute;
     margin-top: 5%;
     right: 0;
-    transform: translateY(-50%);
-    border: 2px solid #000000;
-    border-radius: 10px;
     font: bold 1.5em sans-serif;
-    color: #ffffff;
-    text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 10px;
-    background-image: url(diseños/istockphoto-1141372904-612x612.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100% 300%;
 }
 
 #iniciar {
@@ -133,11 +124,10 @@ body{
 }
 
 .comodin {
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     margin-bottom: 10px;
-    background-color: rgb(197, 105, 105);
     justify-content: center;
     align-items: center; 
 	display: flex;
@@ -217,4 +207,29 @@ body{
 
 .opcion:hover{
     color: #c0be3f;
+}
+
+#comodinReroll{
+    background-color: #000000;
+    background-image: url(diseños/RerollLogo.png);
+    background-size: cover;
+
+}
+#comodinPublico{
+    background-color: #000000;
+    background-image: url(diseños/PublicLogo.png);
+    background-size: cover;
+
+}
+#comodinLlamada{
+    background-color: #000000;
+    background-image: url(diseños/Phone.png);
+    background-size: cover;
+
+}
+#comodin50{
+    background-color: #000000;
+    background-image: url(diseños/50.png);
+    background-size: cover;
+
 }

@@ -16,7 +16,7 @@ body{
 }
 .pregunta{
 	justify-content: center;
-    align-items: center; 
+    align-items: center;
 	display: flex;
     opacity: 0.8;
     background-color: rgb(0, 0, 0);
@@ -24,7 +24,7 @@ body{
 
 .contadorImg {
     position: absolute;
-    bottom: 29%;
+    bottom: 32%;
     left: 2%;
     src: url(diseños/ContadorV1.png);
     width: auto; 
@@ -35,7 +35,7 @@ body{
 .contador {
     position: absolute;
     left: 7%;
-    bottom: 25%;
+    bottom: 28%;
 	justify-content: space-between;
     align-items: center; 
 	margin-bottom: 3%;
@@ -54,7 +54,7 @@ body{
 
 .panel_conjunto {
     position: absolute;
-    top: 70%;
+    bottom: 3%;
     left: 50%;
     transform: translateX(-50%);
     border: 2px solid #000000;
@@ -101,6 +101,7 @@ body{
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
 	text-align: left;
+    
 }
 
 .rder {

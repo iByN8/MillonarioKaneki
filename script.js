@@ -82,7 +82,8 @@ function mostrar_pregunta() {
     juegoIniciado = true; 
     var contenedorPregunta = document.getElementById('pregunta');
     var respuestasContenedor = document.getElementsByClassName('respuesta');
-    document.getElementById("f" + (pregunta_actual + 1)).style.backgroundColor = "yellow";
+    document.getElementById("contador").src = "'diseños/numcontador/'+(pregunta_actual + 1)+'.png'";
+    //document.getElementById("f" + (pregunta_actual + 1)).style.backgroundColor = "yellow";
 
     // Decidir el conjunto de preguntas basado en el nivel de dificultad según el avance
     if (pregunta_actual == 5) {
@@ -105,7 +106,7 @@ function mostrar_pregunta() {
 
     // Asignar respuestas a los botones y remover la clase 'correcta'
     for (var i = 0; i < respuestasContenedor.length; i++) {
-        respuestasContenedor[vectorBarajado[i]].textContent = letras[vectorBarajado[i]] + ' ' +preguntaSeleccionada[i + 1];
+        respuestasContenedor[vectorBarajado[i]].innerHTML =  "&nbsp;"+ letras[vectorBarajado[i]] + ' ' +preguntaSeleccionada[i + 1];
         respuestasContenedor[vectorBarajado[i]].classList.remove('correcta');
         respuestasContenedor[vectorBarajado[i]].style.visibility = "hidden";
         if (i === 0) {

@@ -156,7 +156,7 @@ body{
 
 .panel_flecha{
     position: absolute;
-    top: 55%;
+    top: 65%;
     right:5%;
     transform: translateY(-50%);
     font-size: 100px;
@@ -217,7 +217,7 @@ body{
 }
 #comodinPublico{
     background-color: #000000;
-    background-image: url(diseños/PublicLogo.png);
+    background-image: url(diseños/PublicLogov2.png);
     background-size: cover;
 
 }
@@ -232,4 +232,13 @@ body{
     background-image: url(diseños/50.png);
     background-size: cover;
 
+}
+
+.contadorImg {
+    position: absolute;
+    top: 35%;
+    left: 5%;
+    src: url(diseños/ContadorV1.png);
+    width: auto; 
+    height: auto;
 }

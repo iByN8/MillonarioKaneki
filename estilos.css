@@ -28,6 +28,25 @@ body{
     src: url(diseños/ContadorV1.png);
     width: auto; 
     height: 250px;
+    z-index: 999;
+}
+
+.contador {
+    position: absolute;
+    left: 7%;
+    bottom: 25%;
+	justify-content: space-between;
+    align-items: center; 
+	margin-bottom: 3%;
+    display: flex;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    margin-right: 5px;
+    background-color: rgb(197, 105, 105);
+    font-size: small;
+    justify-content: center;
+    align-items: center; 
     z-index: 1000;
 }
 
@@ -142,15 +161,6 @@ body{
     justify-content: center;
     align-items: center; 
 	display: flex;
-}
-
-.contenedor-figuras {
-	height: 5%;
-	justify-content: space-between;
-    align-items: center; 
-	margin-bottom: 3%;
-    display: none;
-    background-color: rgb(47, 0, 1);
 }
 
 .figura {

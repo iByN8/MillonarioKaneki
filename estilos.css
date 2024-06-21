@@ -236,9 +236,9 @@ body{
 
 .contadorImg {
     position: absolute;
-    top: 35%;
+    bottom: 30%;
     left: 5%;
     src: url(diseños/ContadorV1.png);
     width: auto; 
-    height: auto;
+    height: 250px;
 }

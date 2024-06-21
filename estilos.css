@@ -20,6 +20,17 @@ body{
 	display: flex;
     background-color: rgb(47, 0, 1);
 }
+
+.contadorImg {
+    position: absolute;
+    bottom: 29%;
+    left: 2%;
+    src: url(diseños/ContadorV1.png);
+    width: auto; 
+    height: 250px;
+    z-index: 1000;
+}
+
 .panel_conjunto {
     position: absolute;
     top: 70%;
@@ -195,10 +206,10 @@ body{
 .opcionEncabezado {
     margin-top: 5%;
     margin-bottom: 10%;
-    border-bottom: 4px solid #ffffff; /* Asegúrate de agregar 'solid' para especificar el tipo de borde */
-    display: inline-block; /* Esto permite que el borde se ajuste al contenido */
-    padding-bottom: 2px; /* Ajusta el espacio entre el texto y el borde */
-    text-decoration: none; /* Evita el subrayado predeterminado */
+    border-bottom: 4px solid #ffffff; 
+    display: inline-block; 
+    padding-bottom: 2px; 
+    text-decoration: none; 
 }
 
 .opcion{
@@ -211,7 +222,7 @@ body{
 
 #comodinReroll{
     background-color: #000000;
-    background-image: url(diseños/RerollLogo.png);
+    background-image: url(diseños/RerollLogov2.png);
     background-size: cover;
 
 }
@@ -234,11 +245,3 @@ body{
 
 }
 
-.contadorImg {
-    position: absolute;
-    bottom: 30%;
-    left: 5%;
-    src: url(diseños/ContadorV1.png);
-    width: auto; 
-    height: 250px;
-}

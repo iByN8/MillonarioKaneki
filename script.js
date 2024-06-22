@@ -82,7 +82,7 @@ function mostrar_pregunta() {
     juegoIniciado = true; 
     var contenedorPregunta = document.getElementById('pregunta');
     var respuestasContenedor = document.getElementsByClassName('respuesta');
-    document.getElementById("contador").src = "'diseños/numcontador/'+(pregunta_actual + 1)+'.png'";
+    document.getElementById("contador").src = "diseños/numcontador/"+(pregunta_actual + 1)+".png";
     //document.getElementById("f" + (pregunta_actual + 1)).style.backgroundColor = "yellow";
 
     // Decidir el conjunto de preguntas basado en el nivel de dificultad según el avance
@@ -149,11 +149,11 @@ function revisa_si_correcta(r) {
 
         if (esCorrecta) {
             respuestaSeleccionada.style.backgroundColor = "green";
-            document.getElementById("f" + (pregunta_actual + 1)).style.backgroundColor = "green"; 
+            //document.getElementById("f" + (pregunta_actual + 1)).style.backgroundColor = "green"; 
             pregunta_actual++;
             juegoIniciado = false;
             if(pregunta_actual<15){
-            document.getElementById("flecha").style.display="block";
+            document.getElementById("flecha").style.display="flex";
 
             }else{
                 console.log("¡Enhorabuena! ¡Hoy es tu dia de suerte, te has vuelto millonario!")
@@ -161,7 +161,7 @@ function revisa_si_correcta(r) {
 
         } else {
             respuestaSeleccionada.style.backgroundColor = "red";
-            document.getElementById("f" + (pregunta_actual + 1)).style.backgroundColor = "red";
+            //document.getElementById("f" + (pregunta_actual + 1)).style.backgroundColor = "red";
             juegoIniciado = false;
             mostrarCorrecta();
             console.log("¡Has perdido, hoy no sera el dia de ser millonario!")

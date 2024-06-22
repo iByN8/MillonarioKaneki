@@ -167,21 +167,10 @@ body{
 	display: flex;
 }
 
-.figura {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    margin-right: 5px;
-    background-color: rgb(197, 105, 105);
-    font-size: small;
-    justify-content: center;
-    align-items: center; 
-	display: flex;
-}
 
 .panel_flecha{
     position: absolute;
-    top: 65%;
+    bottom: 24%;
     right:5%;
     transform: translateY(-50%);
     font-size: 100px;

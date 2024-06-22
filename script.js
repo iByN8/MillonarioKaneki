@@ -82,7 +82,7 @@ function mostrar_pregunta() {
     juegoIniciado = true; 
     var contenedorPregunta = document.getElementById('pregunta');
     var respuestasContenedor = document.getElementsByClassName('respuesta');
-    document.getElementById("contador").src = "diseños/numcontador/"+(pregunta_actual + 1)+".png";
+    document.getElementById('contador').style.backgroundImage = 'url("diseños/numcontador/'+ (pregunta_actual + 1)+'.png")';
     //document.getElementById("f" + (pregunta_actual + 1)).style.backgroundColor = "yellow";
 
     // Decidir el conjunto de preguntas basado en el nivel de dificultad según el avance

@@ -78,8 +78,7 @@ function inicializa_juego(){
         mostrar_pregunta();  
 };
 
-function mostrar_pregunta() {
-    juegoIniciado = true; 
+function mostrar_pregunta() { 
     var contenedorPregunta = document.getElementById('pregunta');
     var respuestasContenedor = document.getElementsByClassName('respuesta');
     document.getElementById('contador').style.backgroundImage = 'url("diseños/numcontador/'+ (pregunta_actual + 1)+'.png")';
@@ -126,6 +125,7 @@ function shuffle(array) {
 }
 
 function mostrarPreguntas(){
+    juegoIniciado = true;
     var respuestaSeleccionada = document.getElementById('R1');
     
     if(respuestaSeleccionada.classList.contains('noMostrado')){
@@ -237,6 +237,7 @@ function comodinReroll(){
     if(comodin_Reroll){
         boton.style.opacity = "0.5";
         comodin_Reroll = false;
+        juegoIniciado = false;
         usarComodinReroll()
     }
 }

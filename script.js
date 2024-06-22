@@ -92,6 +92,7 @@ function mostrar_pregunta() {
         preguntaArray = 0;
     } else if (pregunta_actual == 10) {
         preguntas = preguntas_dificiles;
+        document.getElementById('contador').style.backgroundSize = '55px 45px'
         shuffle(preguntas);
         preguntaArray = 0;
     } 
@@ -149,7 +150,7 @@ function revisa_si_correcta(r) {
 
         if (esCorrecta) {
             respuestaSeleccionada.style.backgroundColor = "green";
-            //document.getElementById("f" + (pregunta_actual + 1)).style.backgroundColor = "green"; 
+            //document.getElementById('contador').style.backgroundColor = "green";
             pregunta_actual++;
             juegoIniciado = false;
             if(pregunta_actual<15){
@@ -161,7 +162,7 @@ function revisa_si_correcta(r) {
 
         } else {
             respuestaSeleccionada.style.backgroundColor = "red";
-            //document.getElementById("f" + (pregunta_actual + 1)).style.backgroundColor = "red";
+            //document.getElementById('contador').style.backgroundColor = "red";
             juegoIniciado = false;
             mostrarCorrecta();
             console.log("¡Has perdido, hoy no sera el dia de ser millonario!")

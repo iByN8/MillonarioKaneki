@@ -171,11 +171,15 @@ body{
 
 .panel_flecha{
     position: absolute;
-    bottom: 24%;
+    bottom: 30%;
     right:5%;
     transform: translateY(-50%);
-    font-size: 100px;
     display: none;
+}
+
+.flecha{
+    width: 200px;
+    height: 100px;
 }
 
 .logo{
@@ -248,4 +252,19 @@ body{
     background-size: cover;
 
 }
+
+.parpadeante {
+    background-color: rgb(150, 102, 30);
+    animation: parpadeo 1s infinite;
+}
+
+@keyframes parpadeo {
+    0%, 100% {
+        background-color: rgb(0, 0, 0);
+    }
+    50% {
+        background-color: rgb(150, 102, 30);
+    }
+}
+
 

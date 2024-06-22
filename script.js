@@ -92,7 +92,7 @@ function mostrar_pregunta() {
         preguntaArray = 0;
     } else if (pregunta_actual == 10) {
         preguntas = preguntas_dificiles;
-        document.getElementById('contador').style.backgroundSize = '55px 45px'
+        document.getElementById('contador').style.backgroundSize = '50px 45px'
         shuffle(preguntas);
         preguntaArray = 0;
     } 
@@ -147,26 +147,40 @@ function revisa_si_correcta(r) {
     if(juegoIniciado){
         var respuestaSeleccionada = document.getElementById(r); // Obtener el elemento de la respuesta seleccionada por su ID
         var esCorrecta = respuestaSeleccionada.classList.contains('correcta'); // Verificar si la respuesta seleccionada tiene la clase 'correcta'
-
-        if (esCorrecta) {
-            respuestaSeleccionada.style.backgroundColor = "green";
-            //document.getElementById('contador').style.backgroundColor = "green";
-            pregunta_actual++;
-            juegoIniciado = false;
-            if(pregunta_actual<15){
-            document.getElementById("flecha").style.display="flex";
-
-            }else{
-                console.log("¡Enhorabuena! ¡Hoy es tu dia de suerte, te has vuelto millonario!")
+        var parpadeando = respuestaSeleccionada.classList.contains('parpadeante');
+        var parpadeantes = document.getElementsByClassName('parpadeante');
+        if(!parpadeando){
+            
+            // Remover la clase 'parpadeante' de todas las respuestas
+            for (var i = 0; i < parpadeantes.length; i++) {
+                parpadeantes[i].classList.remove('parpadeante');
             }
+            respuestaSeleccionada.classList.add('parpadeante');
+        }else if (esCorrecta & parpadeando) {
+                for (var i = 0; i < parpadeantes.length; i++) {
+                    parpadeantes[i].classList.remove('parpadeante');
+                }
+                respuestaSeleccionada.style.backgroundColor = "green";
+                //document.getElementById('contador').style.backgroundColor = "green";
+                pregunta_actual++;
+                juegoIniciado = false;
+                if(pregunta_actual<15){
+                document.getElementById("flecha").style.display="flex";
 
-        } else {
-            respuestaSeleccionada.style.backgroundColor = "red";
-            //document.getElementById('contador').style.backgroundColor = "red";
-            juegoIniciado = false;
-            mostrarCorrecta();
-            console.log("¡Has perdido, hoy no sera el dia de ser millonario!")
-        }
+                }else{
+                    console.log("¡Enhorabuena! ¡Hoy es tu dia de suerte, te has vuelto millonario!")
+                }
+
+            } else {
+                for (var i = 0; i < parpadeantes.length; i++) {
+                    parpadeantes[i].classList.remove('parpadeante');
+                }
+                respuestaSeleccionada.style.backgroundColor = "red";
+                //document.getElementById('contador').style.backgroundColor = "red";
+                juegoIniciado = false;
+                mostrarCorrecta();
+                console.log("¡Has perdido, hoy no sera el dia de ser millonario!")
+            }
     }
 }
 
@@ -272,7 +286,12 @@ function comodin50() {
 
 function usarComodin50() {
     var respuestas = document.getElementsByClassName("respuesta");
+    var parpadeantes = document.getElementsByClassName('parpadeante');
     var incorrectas = 0;
+
+    for (var i = 0; i < parpadeantes.length; i++) {
+        parpadeantes[i].classList.remove('parpadeante');
+    }
 
     for (var i = 0; i < respuestas.length; i++) {
         if (!respuestas[i].classList.contains("desactivada") && !respuestas[i].classList.contains("correcta")) {
@@ -301,6 +320,11 @@ function undoComodin50() {
 function usarComodinReroll(){
     var contenedorPregunta = document.getElementById('pregunta');
     var respuestasContenedor = document.getElementsByClassName('respuesta');
+    var parpadeantes = document.getElementsByClassName('parpadeante');
+
+    for (var i = 0; i < parpadeantes.length; i++) {
+        parpadeantes[i].classList.remove('parpadeante');
+    }
 
     var preguntaSeleccionada = preguntas[5]; 
     contenedorPregunta.textContent = preguntaSeleccionada[0]; // Mostrar la pregunta

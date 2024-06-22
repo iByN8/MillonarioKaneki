@@ -160,6 +160,7 @@ body{
 .comodin {
     width: 60px;
     height: 60px;
+    border-color: #ffffff;
     border-radius: 50%;
     margin-bottom: 10px;
     justify-content: center;

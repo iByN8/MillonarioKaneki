@@ -261,7 +261,7 @@ function comodinLlamada(){
     if(juegoIniciado){
     var boton = document.getElementById("comodinLlamada");
     if(comodin_Llamada){
-        boton.style.opacity = "0.5";
+        boton.style.opacity = "0";
         comodin_Llamada = false;
      }else if(!boton.classList.contains("comodinUsado")){
         boton.style.opacity = "1";
@@ -274,7 +274,7 @@ function comodin50() {
     if(juegoIniciado){
     var boton = document.getElementById("comodin50");
     if(comodin_50){
-        boton.style.opacity = "0.5";
+        boton.style.opacity = "0";
         comodin_50 = false;
         usarComodin50();
      }else if(!boton.classList.contains("comodinUsado")){

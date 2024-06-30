@@ -91,7 +91,6 @@ function mostrar_pregunta() {
         preguntaArray = 0;
     } else if (pregunta_actual == 10) {
         preguntas = preguntas_dificiles;
-        document.getElementById('contador').style.backgroundSize = '50px 45px'
         shuffle(preguntas);
         preguntaArray = 0;
     } 
